@@ -6,6 +6,7 @@ Pathfinding demo with A* algorithm
 2. simple grapgh and breadth first search
 3. square grid map and breadth first search
 4. square grid map with weighted edges and dijkstra search, a star search
+5. I apply it to another unity project, see also [battle-city](https://github.com/zhang0xf/battle-city).
 
 ### Reference
 [Amit’s A* Pages](http://theory.stanford.edu/~amitp/GameProgramming/) 
