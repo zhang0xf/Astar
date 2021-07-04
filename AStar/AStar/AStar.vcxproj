@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d26c3fce-628b-4582-85a0-17de00857a3b}</ProjectGuid>
+    <ProjectGuid>{e155bca1-ae5c-4791-b4cd-c3ade8a22f2a}</ProjectGuid>
     <RootNamespace>AStar</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -139,15 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AStar\grid_weight.cpp" />
-    <ClCompile Include="AStar\simple_graph.cpp" />
-    <ClCompile Include="AStar\main.cpp" />
-    <ClCompile Include="AStar\square_grid.cpp" />
+    <ClCompile Include="code\grid_weight.cpp" />
+    <ClCompile Include="code\main.cpp" />
+    <ClCompile Include="code\simple_graph.cpp" />
+    <ClCompile Include="code\square_grid.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AStar\grid_weights.h" />
-    <ClInclude Include="AStar\simple_graph.h" />
-    <ClInclude Include="AStar\square_grid.h" />
+    <ClInclude Include="code\grid_weights.h" />
+    <ClInclude Include="code\simple_graph.h" />
+    <ClInclude Include="code\square_grid.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
