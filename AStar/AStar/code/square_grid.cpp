@@ -1,7 +1,7 @@
 #include "square_grid.h"
 
+// East, West, North, South
 std::array<GridLocation, 4> SquareGrid::DIRS = {
-	/* East, West, North, South */
 	GridLocation{1, 0}, GridLocation{-1, 0},
 	GridLocation{0, -1}, GridLocation{0, 1}
 };
@@ -16,8 +16,8 @@ std::vector<GridLocation> SquareGrid::neighbors(GridLocation id) const {
 		}
 	}
 
+	// see [ugly paths] section for an explanation:
 	if ((id.x + id.y) % 2 == 0) {
-		// see "Ugly paths" section for an explanation:
 		std::reverse(results.begin(), results.end());
 	}
 

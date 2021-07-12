@@ -21,7 +21,6 @@ void breadth_first_search(SimpleGraph graph, char start)
 
 		for (char next : graph.neighbors(current))
 		{
-			// Œ¥∑√Œ 
 			if (reached.find(next) == reached.end())
 			{
 				reached.insert(next);

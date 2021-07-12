@@ -1,8 +1,6 @@
 #pragma once
 #include <unordered_map>
 
-// （任意）图与广度优先搜索
-
 // 图的顶点使用char表示
 struct SimpleGraph
 {

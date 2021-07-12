@@ -11,8 +11,7 @@
 #include <algorithm>
 #include <cstdlib>
 
-// 正方形网格图与广度优先搜索
-
+// 坐标
 struct GridLocation
 {
 	int x, y;
@@ -33,14 +32,9 @@ struct GridLocation
 	}
 };
 
-//std::basic_iostream<char>::basic_ostream& operator<<(std::basic_iostream<char>::basic_ostream& out, const GridLocation& loc) {
-//	out << '(' << loc.x << ',' << loc.y << ')';
-//	return out;
-//}
-
 namespace std
 {
-	/* implement hash function so we can put GridLocation into an unordered_set */
+	// implement hash function so we can put GridLocation into an unordered_set
 	template <> struct hash<GridLocation> {
 		typedef GridLocation argument_type;
 		typedef std::size_t result_type;
@@ -71,10 +65,7 @@ struct SquareGrid
 	std::vector<GridLocation> neighbors(GridLocation id) const; 
 };
 
-// This outputs a grid. Pass in a distances map if you want to print
-// the distances, or pass in a point_to map if you want to print
-// arrows that point to the parent location, or pass in a path vector
-// if you want to draw the path.
+// 绘制网格地图
 template<class Graph>
 void draw_grid(const Graph& graph,
 	std::unordered_map<GridLocation, double>* distances = nullptr,
@@ -120,7 +111,7 @@ void draw_grid(const Graph& graph,
 	std::cout << std::string(field_width * graph.width, '~') << '\n';
 }
 
-// 广度优先搜索应用于正方形网格地图
+// 广度优先搜索
 template<typename Location, typename Graph>
 std::unordered_map<Location, Location> breadth_first_search_in_square_grid(Graph graph, Location start)
 {
@@ -144,7 +135,7 @@ std::unordered_map<Location, Location> breadth_first_search_in_square_grid(Graph
 	return came_from;
 }
 
-// 广度优先搜索应用于正方形网格地图
+// 广度优先搜索（寻找目标）
 template<typename Location, typename Graph>
 std::unordered_map<Location, Location> breadth_first_search_in_square_grid(Graph graph, Location start, Location goal)
 {
@@ -158,7 +149,6 @@ std::unordered_map<Location, Location> breadth_first_search_in_square_grid(Graph
 		Location current = frontier.front();
 		frontier.pop();
 
-		// early exit
 		if (current == goal) {
 			break;
 		}
@@ -175,7 +165,6 @@ std::unordered_map<Location, Location> breadth_first_search_in_square_grid(Graph
 
 void add_rect(SquareGrid& grid, int x1, int y1, int x2, int y2);
 SquareGrid make_diagram1();
-
 void test_draw_square_grid();
 void test_draw_path_by_breadth_first_search_in_square_grid();
 void test_draw_path_by_breadth_first_search_in_square_grid_to_goal();

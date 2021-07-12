@@ -1,29 +1,23 @@
 #pragma once
 #include "square_grid.h"
 
-// 带权重（边表示移动花费的代价）的正方形网格地图与狄克斯特拉搜索
-
+// 权重图与狄克斯特拉算法
 struct GridWithWeights : SquareGrid
 {
+	// 森林地形的移动花费是5
 	std::unordered_set<GridLocation> forests;
 	GridWithWeights(int w, int h) : SquareGrid(w, h) {}
 	double cost(GridLocation from_node, GridLocation to_node) const {
-		// forests的移动代价是5
 		return forests.find(to_node) != forests.end() ? 5 : 1;
 	}
 };
 
-/// <summary>
-/// 优先队列
-/// </summary>
-/// <typeparam name="T">对象类型</typeparam>
-/// <typeparam name="priority_t">优先级(movecost)</typeparam>
+// 优先队列
 template<typename T, typename priority_t>
 struct PriorityQueue 
 {
 	typedef std::pair<priority_t, T> PQElement;
-	// The type of the underlying(底层) container(容器) to use to store the elements.
-	// using std::greater<T> would cause the smallest element to appear as the top().
+	// 底层容器使用vector
 	std::priority_queue<PQElement, std::vector<PQElement>, std::greater<PQElement>> elements;
 
 	inline bool empty() const {
@@ -42,8 +36,8 @@ struct PriorityQueue
 };
 
 template<typename Location, typename Graph>
-void dijkstra_search
-(Graph graph,
+void dijkstra_search(
+	Graph graph,
 	Location start,
 	Location goal,
 	std::unordered_map<Location, Location>& came_from,
@@ -74,6 +68,7 @@ void dijkstra_search
 	}
 }
 
+// 构建路径
 template<typename Location>
 std::vector<Location> reconstruct_path(
 	Location start, Location goal,
@@ -85,12 +80,13 @@ std::vector<Location> reconstruct_path(
 		path.push_back(current);
 		current = came_from[current];
 	}
-	path.push_back(start); // optional
+	path.push_back(start); // 可选
 	std::reverse(path.begin(), path.end());
 	return path;
 }
 
 inline double heuristic(GridLocation a, GridLocation b) {
+	// 曼哈顿距离
 	return std::abs(a.x - b.x) + std::abs(a.y - b.y);
 }
 
