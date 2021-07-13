@@ -3,7 +3,7 @@
 #include <iostream>
 #include "simple_graph.h"
 
-// Í¼µÄ¹ã¶ÈÓÅÏÈËÑË÷
+// å›¾çš„å¹¿åº¦ä¼˜å…ˆæœç´¢
 void breadth_first_search(SimpleGraph graph, char start)
 {
 	std::queue<char> frontier;
@@ -32,7 +32,7 @@ void breadth_first_search(SimpleGraph graph, char start)
 
 void test_breadth_first_search_in_simple_graph()
 {
-	// ´´½¨Í¼
+	// åˆ›å»ºå›¾
 	SimpleGraph example_graph{ {
 	{'A', {'B'}},
 	{'B', {'C'}},

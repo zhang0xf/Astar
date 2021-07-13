@@ -1,7 +1,7 @@
 #pragma once
 #include <unordered_map>
 
-// 图的顶点使用char表示
+// 鍥剧殑椤剁偣浣跨敤char琛ㄧず
 struct SimpleGraph
 {
 	std::unordered_map<char, std::vector<char> > edges;

@@ -1,10 +1,10 @@
 #pragma once
 #include "square_grid.h"
 
-// È¨ÖØÍ¼ÓëµÒ¿ËË¹ÌØÀ­Ëã·¨
+// æƒé‡å›¾ä¸ç‹„å…‹æ–¯ç‰¹æ‹‰ç®—æ³•
 struct GridWithWeights : SquareGrid
 {
-	// É­ÁÖµØĞÎµÄÒÆ¶¯»¨·ÑÊÇ5
+	// æ£®æ—åœ°å½¢çš„ç§»åŠ¨èŠ±è´¹æ˜¯5
 	std::unordered_set<GridLocation> forests;
 	GridWithWeights(int w, int h) : SquareGrid(w, h) {}
 	double cost(GridLocation from_node, GridLocation to_node) const {
@@ -12,12 +12,12 @@ struct GridWithWeights : SquareGrid
 	}
 };
 
-// ÓÅÏÈ¶ÓÁĞ
+// ä¼˜å…ˆé˜Ÿåˆ—
 template<typename T, typename priority_t>
 struct PriorityQueue 
 {
 	typedef std::pair<priority_t, T> PQElement;
-	// µ×²ãÈİÆ÷Ê¹ÓÃvector
+	// åº•å±‚å®¹å™¨ä½¿ç”¨vector
 	std::priority_queue<PQElement, std::vector<PQElement>, std::greater<PQElement>> elements;
 
 	inline bool empty() const {
@@ -68,7 +68,7 @@ void dijkstra_search(
 	}
 }
 
-// ¹¹½¨Â·¾¶
+// æ„å»ºè·¯å¾„
 template<typename Location>
 std::vector<Location> reconstruct_path(
 	Location start, Location goal,
@@ -80,13 +80,13 @@ std::vector<Location> reconstruct_path(
 		path.push_back(current);
 		current = came_from[current];
 	}
-	path.push_back(start); // ¿ÉÑ¡
+	path.push_back(start); // å¯é€‰
 	std::reverse(path.begin(), path.end());
 	return path;
 }
 
 inline double heuristic(GridLocation a, GridLocation b) {
-	// Âü¹ş¶Ù¾àÀë
+	// æ›¼å“ˆé¡¿è·ç¦»
 	return std::abs(a.x - b.x) + std::abs(a.y - b.y);
 }
 

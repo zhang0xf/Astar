@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <cstdlib>
 
-// 坐标
+// 鍧愭爣
 struct GridLocation
 {
 	int x, y;
@@ -65,7 +65,7 @@ struct SquareGrid
 	std::vector<GridLocation> neighbors(GridLocation id) const; 
 };
 
-// 绘制网格地图
+// 缁樺埗缃戞牸鍦板浘
 template<class Graph>
 void draw_grid(const Graph& graph,
 	std::unordered_map<GridLocation, double>* distances = nullptr,
@@ -111,7 +111,7 @@ void draw_grid(const Graph& graph,
 	std::cout << std::string(field_width * graph.width, '~') << '\n';
 }
 
-// 广度优先搜索
+// 骞垮害浼樺厛鎼滅储
 template<typename Location, typename Graph>
 std::unordered_map<Location, Location> breadth_first_search_in_square_grid(Graph graph, Location start)
 {
@@ -135,7 +135,7 @@ std::unordered_map<Location, Location> breadth_first_search_in_square_grid(Graph
 	return came_from;
 }
 
-// 广度优先搜索（寻找目标）
+// 骞垮害浼樺厛鎼滅储锛堝鎵剧洰鏍囷級
 template<typename Location, typename Graph>
 std::unordered_map<Location, Location> breadth_first_search_in_square_grid(Graph graph, Location start, Location goal)
 {
